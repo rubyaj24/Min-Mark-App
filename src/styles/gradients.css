@@ -1,0 +1,53 @@
+@keyframes meshGradient {
+  0% {
+    background-position: 0% 50%;
+    background-size: 400% 400%;
+  }
+  50% {
+    background-position: 100% 50%;
+    background-size: 300% 300%;
+  }
+  100% {
+    background-position: 0% 50%;
+    background-size: 400% 400%;
+  }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(
+    45deg,
+    #0073ff,
+    #00c6ff 25%,
+    #db2777 50%,
+    #7c3aed 75%,
+    #0073ff
+  );
+  /* Add radial gradients for mesh effect */
+  background-image: 
+    radial-gradient(circle at top left, rgba(0,115,255,0.8), transparent 40%),
+    radial-gradient(circle at top right, rgba(0,198,255,0.8), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(219,39,119,0.8), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(124,58,237,0.8), transparent 40%),
+    linear-gradient(
+      45deg,
+      #0073ff,
+      #00c6ff 25%,
+      #db2777 50%,
+      #7c3aed 75%,
+      #0073ff
+    );
+  background-size: 400% 400%;
+  animation: meshGradient 10s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Optional: Add hover effect */
+.animated-gradient-text:hover {
+  animation-duration: 4s;
+  transform: scale(1.01);
+  transition: transform 0.5s ease;
+  filter: brightness(1.1);
+}

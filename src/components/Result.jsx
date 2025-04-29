@@ -26,29 +26,49 @@ function Result({ data }) {
         transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
     });
 
+    const getRiskColor = (risk) => {
+        const colors = {
+            SAFE: "text-green-400",
+            MODERATE: "text-yellow-400",
+            RISKY: "text-orange-400",
+            IMPOSSIBLE: "text-red-400"
+        };
+        return colors[risk] || "text-white";
+    };
+
+    const getGradeColor = (grade) => {
+        const colors = {
+            O: "text-purple-400",
+            'A+': "text-blue-400",
+            A: "text-cyan-400",
+            'B+': "text-teal-400",
+            B: "text-green-400",
+            C: "text-yellow-400",
+            P: "text-orange-400",
+            F: "text-red-400"
+        };
+        return colors[grade] || "text-white";
+    };
+
     return (
-        <div className="max-w-5xl mx-auto">
-            <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 md:p-8 shadow-2xl">
-                <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-                    Analysis
-                </h2>
-                
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="w-full max-w-4xl lg:max-w-7xl mx-auto">
+            <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-4 sm:p-6 lg:p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                     {/* Main Subject Card */}
                     <div 
-                        className="lg:col-span-2 group relative overflow-hidden bg-gradient-to-br 
-                                 from-red-900/80 to-red-700/80 rounded-xl p-6 hover:scale-[1.01] 
-                                 transition-all duration-700 ease-out shadow-lg 
-                                 hover:shadow-red-500/20"
+                        className="md:col-span-2 lg:row-span-2 group relative overflow-hidden 
+                                 bg-gradient-to-br from-red-900/80 to-red-700/80 rounded-xl 
+                                 p-4 sm:p-6 lg:p-8 hover:scale-[1.01] transition-all duration-700 
+                                 ease-out shadow-lg hover:shadow-red-500/20"
                         onMouseMove={(e) => handleMouseMove(e, 'subject')}
                         onMouseLeave={handleMouseLeave}
                         style={cardStyle('subject')}
                     >
-                        <div className="flex flex-col space-y-1 transform transition-transform duration-500">
-                            <h2 className="text-3xl font-bold text-white group-hover:text-red-400 text-left">
+                        <div className="space-y-3 lg:space-y-4">
+                            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">
                                 {data.subject.courseId}
                             </h2>
-                            <div className="text-red-100/80 text-left">
+                            <div className="text-red-100/80">
                                 <div className="flex flex-row justify-between mt-4">
                                     <p>{data.subject.courseName}</p>
                                     <p>Credits: {data.subject.credits}</p>
@@ -68,60 +88,70 @@ function Result({ data }) {
                                     You Need to score <span className="font-bold">{data.requiredMarks}</span> more to pass
                                 </p>
                             </div>
-                        </div>
-                    </div>
-
-                    {/* Grade Forecast */}
-                    <div 
-                        className="group relative overflow-hidden bg-gradient-to-br from-amber-900/80 to-amber-700/80 rounded-xl p-6 hover:scale-[1.01] transition-all duration-700 ease-out cursor-pointer shadow-lg hover:shadow-amber-500/20"
-                        onMouseMove={(e) => handleMouseMove(e, 'Grade')}
-                        onMouseLeave={handleMouseLeave}
-                        style={cardStyle('Grade')}
-                    >
-                        <div className="space-y-4">
-                            <h2 className="text-3xl font-bold text-white">Grade Forecast</h2>
-                            <div className="grid grid-cols-2 text-amber-100/80">
-                                <p className="text-2xl font-bold">S</p>
-                                <p className="text-xl font-semibold">100-90</p>
-                                <p className="text-2xl font-bold">A+</p>
-                                <p className="text-xl font-semibold">90-85</p>
-                                <p className="text-2xl font-bold">A</p>
-                                <p className="text-xl font-semibold">85-70</p>
-                                <p className="text-2xl font-bold">B+</p>
-                                <p className="text-xl font-semibold">69</p>
-                                <p className="text-2xl font-bold">B</p>
-                                <p className="text-xl font-semibold">59</p>
+                            <div className={`text-lg ${getRiskColor(data.risk)} font-bold mt-2`}>
+                                Risk Level: {data.risk}
                             </div>
                         </div>
                     </div>
 
-                    {/* Regular Card */}
+                    {/* Grade Requirements Card - Spans 2 columns */}
                     <div 
-                        className="group relative overflow-hidden bg-gradient-to-br from-green-900/80 to-green-700/80 rounded-xl p-6 hover:scale-[1.01] transition-all duration-700 ease-out cursor-pointer shadow-lg hover:shadow-green-500/20"
+                        className="md:col-span-2 group relative overflow-hidden 
+                                 bg-gradient-to-br from-amber-900/80 to-amber-700/80 
+                                 rounded-xl p-4 md:p-6 hover:scale-[1.01] transition-all 
+                                 duration-700 ease-out shadow-lg hover:shadow-amber-500/20"
+                        onMouseMove={(e) => handleMouseMove(e, 'Grade')}
+                        onMouseLeave={handleMouseLeave}
+                        style={cardStyle('Grade')}
+                    >
+                        <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
+                            Grade Requirements
+                        </h2>
+                        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                            {data.gradeRequirements.map(({ grade, required, possible }) => (
+                                <div key={grade} 
+                                     className="flex justify-between items-center bg-black/20 
+                                              rounded-lg p-2 backdrop-blur-sm">
+                                    <span className={`${getGradeColor(grade)} font-bold`}>{grade}</span>
+                                    <span className={possible ? "text-white" : "text-gray-500"}>
+                                        {possible ? `${required}/60` : "N/A"}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Maximum Grade Card */}
+                    <div 
+                        className="group relative overflow-hidden bg-gradient-to-br 
+                                 from-green-900/80 to-green-700/80 rounded-xl p-4 md:p-6 
+                                 hover:scale-[1.01] transition-all duration-700 ease-out 
+                                 shadow-lg hover:shadow-green-500/20 flex flex-col justify-between"
                         onMouseMove={(e) => handleMouseMove(e, 'final')}
                         onMouseLeave={handleMouseLeave}
                         style={cardStyle('final')}
                     >
-                        <h2 className="text-2xl font-bold mb-4 text-white">Final Score</h2>
-                        <div className="space-y-3">
-                            <p className="text-green-100/80">Total: <span className="text-2xl font-bold">89.5%</span></p>
-                            <p className="text-green-100/80">Status: <span className="text-green-400 font-bold">PASSED</span></p>
-                            <p className="text-green-100/80 font-bold">Congratulations! 🎉</p>
+                        <h2 className="text-xl md:text-2xl font-bold text-white">Max Grade</h2>
+                        <div className={`text-3xl md:text-4xl font-bold ${getGradeColor(data.maxPossibleGrade)} 
+                                      text-center my-4`}>
+                            {data.maxPossibleGrade}
                         </div>
                     </div>
 
-                    {/* Large Card - Spans 2 columns */}
+                    {/* Risk Level Card */}
                     <div 
-                        className="group relative overflow-hidden bg-gradient-to-br from-purple-900/80 to-purple-700/80 rounded-xl p-6 hover:scale-[1.01] transition-all duration-700 ease-out cursor-pointer shadow-lg hover:shadow-purple-500/20 lg:col-span-2"
-                        onMouseMove={(e) => handleMouseMove(e, 'info')}
+                        className="group relative overflow-hidden bg-gradient-to-br 
+                                 from-purple-900/80 to-purple-700/80 rounded-xl p-4 md:p-6 
+                                 hover:scale-[1.01] transition-all duration-700 ease-out 
+                                 shadow-lg hover:shadow-purple-500/20 flex flex-col justify-between"
+                        onMouseMove={(e) => handleMouseMove(e, 'risk')}
                         onMouseLeave={handleMouseLeave}
-                        style={cardStyle('info')}
+                        style={cardStyle('risk')}
                     >
-                        <h2 className="text-2xl font-bold mb-4 text-white">Additional Info</h2>
-                        <div className="space-y-3">
-                            <p className="text-purple-100/80">Exam Date: <span className="font-semibold">25th April 2025</span></p>
-                            <p className="text-purple-100/80">Duration: <span className="font-semibold">3 hours</span></p>
-                            <p className="text-purple-100/80">Next Steps: <span className="text-purple-300 hover:text-purple-200 cursor-pointer">Download Certificate</span></p>
+                        <h2 className="text-xl md:text-2xl font-bold text-white">Risk Level</h2>
+                        <div className={`text-2xl md:text-3xl font-bold ${getRiskColor(data.risk)} 
+                                      text-center my-4`}>
+                            {data.risk}
                         </div>
                     </div>
                 </div>
