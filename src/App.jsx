@@ -22,8 +22,8 @@ function App() {
   };
 
   return(
-    <div className="min-h-fit min-w-screen bg-gradient-to-br from-gray-900 to-gray-800 overflow-x-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-10">
+    <div className="min-h-min min-w-screen bg-gradient-to-br from-gray-900 to-gray-800 overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
         {/* Header Section */}
         <header className="w-full max-w-6xl mx-auto text-center space-y-4 mb-8 lg:mb-12">
           <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold animated-gradient-text tracking-tight">
