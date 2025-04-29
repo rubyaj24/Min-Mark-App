@@ -2,24 +2,54 @@ import React from "react";
 
 function Result() {
     return (
-        <>
-        <div className="flex flex-col my-3 w-[80vw] items-center justify-center h-screen bg-black/10 rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">Results</h2>
-            <div className="bg-blue-950 shadow-md rounded-lg p-6 w-80">
-                <h2 className="text-xl font-semibold mb-4">Analysis</h2>
-                <p className="text-white">You need to score at least <span className="font-bold">50%</span> in the final exam.</p>
-                <p className="text-white mt-4">Make sure to review your materials thoroughly.</p>
-                <p className="text-white mt-4 font-bold">Good luck!</p>
-            </div>
-            <div className="bg-green-950 shadow-md rounded-lg p-6 w-80 mt-4">
-                <h2 className="text-xl font-semibold mb-4">Final Score</h2>
-                <p className="text-white">Your final score is: <span className="font-bold">75%</span></p>
-                <p className="text-white mt-4">You have passed the exam!</p>
-                <p className="text-white mt-4 font-bold">Congratulations!</p>
+        <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 p-4">
+            <div className="flex flex-col my-3 w-[90vw] mx-auto items-center justify-center gap-6 bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-xl p-6 shadow-xl">
+                <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">Results</h2>
+                
+                {/* Top Row Flex Container */}
+                <div className="flex flex-col md:flex-row gap-6 w-full">
+                    <div className="flex-1 bg-gray-950 shadow-xl rounded-xl p-6 hover:scale-105 transition-transform">
+                        <h2 className="text-2xl font-semibold mb-4 text-white">Subject Details</h2>
+                        <div className="flex flex-col gap-3">
+                            <p className="text-gray-300">Subject: Computer Science</p>
+                            <p className="text-gray-300">Code: CS101</p>
+                            <p className="text-gray-300">Semester: 3</p>
+                        </div>
+                    </div>
+
+                    <div className="flex-1 bg-blue-950 shadow-xl rounded-xl p-6 hover:scale-105 transition-transform">
+                        <h2 className="text-2xl font-semibold mb-4 text-white">Analysis</h2>
+                        <div className="flex flex-col gap-3">
+                            <p className="text-gray-300">Internal Mark: <span className="font-bold">40/50</span></p>
+                            <p className="text-gray-300">Required Mark: <span className="font-bold">10/50</span></p>
+                            <p className="text-gray-300 font-bold">You're on track!</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Row Flex Container */}
+                <div className="flex flex-col md:flex-row gap-6 w-full">
+                    <div className="flex-1 bg-green-950 shadow-xl rounded-xl p-6 hover:scale-105 transition-transform">
+                        <h2 className="text-2xl font-semibold mb-4 text-white">Final Score</h2>
+                        <div className="flex flex-col gap-3">
+                            <p className="text-gray-300">Total: <span className="font-bold">75%</span></p>
+                            <p className="text-gray-300">Status: <span className="text-green-400 font-bold">PASSED</span></p>
+                            <p className="text-gray-300 font-bold">Congratulations!</p>
+                        </div>
+                    </div>
+
+                    <div className="flex-1 bg-purple-950 shadow-xl rounded-xl p-6 hover:scale-105 transition-transform">
+                        <h2 className="text-2xl font-semibold mb-4 text-white">Additional Info</h2>
+                        <div className="flex flex-col gap-3">
+                            <p className="text-gray-300">Exam Date: 25th April 2025</p>
+                            <p className="text-gray-300">Duration: 3 hours</p>
+                            <p className="text-gray-300">Next Steps: Download Certificate</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        </>
-    )
+    );
 }
 
 export default Result;
