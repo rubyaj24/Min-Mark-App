@@ -39,11 +39,11 @@ function Form({ onCalculate }) {
         const internal = parseInt(internalMarks);
         const subject = subjects.find(sub => sub.courseId === selectedSubject);
         
-        // Basic calculations
-        const minEseRequired = Math.max(45 - internal, 24); // Minimum ESE marks needed
-        const maxPossibleTotal = internal + 60; // Maximum possible total
 
-        // Grade feasibility calculations
+        const minEseRequired = Math.max(45 - internal, 24); //ESE - End Semester Exam
+        const maxPossibleTotal = internal + 60;
+
+
         const gradeFeasibility = {
             O:  { min: 90, possible: maxPossibleTotal >= 90 },
             'A+': { min: 85, possible: maxPossibleTotal >= 85 },
@@ -54,13 +54,13 @@ function Form({ onCalculate }) {
             P:  { min: 45, possible: maxPossibleTotal >= 45 }
         };
 
-        // Risk assessment
+        
         let risk = "IMPOSSIBLE";
         if (minEseRequired <= 30) risk = "SAFE";
         else if (minEseRequired <= 45) risk = "MODERATE";
         else if (minEseRequired <= 60) risk = "RISKY";
 
-        // Calculate required marks for each grade
+        
         const gradeRequirements = Object.entries(gradeFeasibility).map(([grade, data]) => ({
             grade,
             required: Math.max(data.min - internal, 24),

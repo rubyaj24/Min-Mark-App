@@ -8,10 +8,10 @@ function App() {
   const [isFormVisible, setIsFormVisible] = useState(true);
 
   const handleCalculate = (formData) => {
-    setIsFormVisible(false); // Hide form first
+    setIsFormVisible(false);
     setTimeout(() => {
-      setResultData(formData); // Show results after form fades out
-    }, 300); // Match this with transition duration
+      setResultData(formData);
+    }, 300);
   };
 
   const handleReset = () => {
