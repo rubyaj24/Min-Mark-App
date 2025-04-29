@@ -32,7 +32,7 @@ function App() {
             Calculate the minimum marks required to pass your exam.
             <br />
             Github Repo:
-            <a href="https://github.com/your-repo-link" target="_blank" rel="noopener noreferrer"> Here</a>
+            <a href="https://github.com/rubyaj24/Min-Mark-App" target="_blank" rel="noopener noreferrer"> Here</a>
           </p>
         </header>
 
