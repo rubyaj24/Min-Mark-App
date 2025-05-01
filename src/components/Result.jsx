@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { calculateRequiredMarks } from "../utils/calculations";
 
 function Result({ data }) {
     const [activeCard, setActiveCard] = useState(null);
@@ -50,6 +51,21 @@ function Result({ data }) {
         return colors[grade] || "text-white";
     };
 
+    const requiredMarks = calculateRequiredMarks(data.internal);
+    // const gradeRequirements = calculateGradeRequirements(data.internal);
+
+    const isPossible = requiredMarks <= 60;
+
+    // Determine risk level
+    const getRiskLevel = (required) => {
+        if (!isPossible) return "IMPOSSIBLE";
+        if (required <= 30) return "SAFE";
+        if (required <= 45) return "MODERATE";
+        return "RISKY";
+    };
+
+    const risk = getRiskLevel(requiredMarks);
+
     return (
         <div className="w-full max-w-4xl lg:max-w-7xl mx-auto">
             <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-4 sm:p-6 lg:p-8">
@@ -84,12 +100,20 @@ function Result({ data }) {
                                         Your internal score: {data.internal}
                                     </p>
                                 </div>
-                                <p className="text-2xl font-semibold mt-2">
-                                    You Need to score <span className="font-bold">{data.requiredMarks}</span> more to pass
-                                </p>
+                                <div className="text-2xl font-semibold mt-2">
+                                    {isPossible ? (
+                                        <span>
+                                            You Need to score <span className="font-bold">{requiredMarks}</span> out of 60 to pass
+                                        </span>
+                                    ) : (
+                                        <span className="text-red-400">
+                                            Cannot pass with current internal marks
+                                        </span>
+                                    )}
+                                </div>
                             </div>
-                            <div className={`text-lg ${getRiskColor(data.risk)} font-bold mt-2`}>
-                                Risk Level: {data.risk}
+                            <div className={`text-lg ${getRiskColor(risk)} font-bold mt-2`}>
+                                Risk Level: {risk}
                             </div>
                         </div>
                     </div>

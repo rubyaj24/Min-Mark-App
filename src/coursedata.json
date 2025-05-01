@@ -4,42 +4,42 @@
       "courseId": "GAMAT101",
       "courseName": "Mathematics for Information Science-1",
       "credits": 4,
-      "internal": 50,
+      "internal": 40,
       "external": 100
     },
     {
       "courseId": "GAPHT121",
       "courseName": "Physics for Information Science",
       "credits": 4,
-      "internal": 50,
+      "internal": 40,
       "external": 100
     },
     {
       "courseId": "GACHT122",
       "courseName": "Chemistry for Information Science",
       "credits": 4,
-      "internal": 50,
+      "internal": 40,
       "external": 100
     },
     {
       "courseId": "GAEST103",
       "courseName": "Engineering Graphics and CAD",
       "credits": 3,
-      "internal": 50,
+      "internal": 40,
       "external": 100
     },
     {
       "courseId": "GAEST104",
       "courseName": "Intro to Electrical & Electronics",
       "credits": 3,
-      "internal": 50,
+      "internal": 40,
       "external": 100
     },
     {
       "courseId": "GACST105",
       "courseName": "Algorithmic Thinking with Python",
       "credits": 4,
-      "internal": 50,
+      "internal": 40,
       "external": 100
     }
   ],
@@ -48,7 +48,7 @@
       "courseId": "GAMAT102",
       "courseName": "Mathematics for Information Science-2",
       "credits": 4,
-      "internal": 50,
+      "internal": 40,
       "external": 100
     }
   ],

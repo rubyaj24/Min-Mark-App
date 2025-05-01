@@ -128,7 +128,7 @@ function Form({ onCalculate }) {
                     {/* Internal Marks Input */}
                     <div className="space-y-2 lg:space-y-3">
                         <label className="text-sm lg:text-base font-medium text-gray-300">
-                            Internal Marks (0-50)
+                            Internal Marks (0-40)
                         </label>
                         <input
                             type="number"
