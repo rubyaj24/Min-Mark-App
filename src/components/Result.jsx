@@ -91,9 +91,9 @@ function Result({ data }) {
                                 </div>
                                 <div className="flex flex-row justify-between space-y-2 mt-4">
                                     <p className="text-xl font-semibold mt-2">
-                                        Total Marks: {data.subject.external} 
+                                        Total Marks: {data.subject.external+data.subject.internal} 
                                         <span className="text-sm font-normal">
-                                            ({data.subject.external - data.subject.internal}+{data.subject.internal})
+                                            ({data.subject.external}+{data.subject.internal})
                                         </span>
                                     </p>
                                     <p className="text-xl font-semibold mt-2">

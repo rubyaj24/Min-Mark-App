@@ -128,7 +128,8 @@ function Form({ onCalculate }) {
                     {/* Internal Marks Input */}
                     <div className="space-y-2 lg:space-y-3">
                         <label className="text-sm lg:text-base font-medium text-gray-300">
-                            Internal Marks (0-40)
+                            Internal Marks (0-
+                            {subjects.find(sub => sub.courseId === selectedSubject)?.internal === 50 ? "50" : "40"})
                         </label>
                         <input
                             type="number"
@@ -136,7 +137,7 @@ function Form({ onCalculate }) {
                             onChange={handleMarksChange}
                             placeholder="Enter internal marks"
                             min="0"
-                            max="50"
+                            max={subjects.find(sub => sub.courseId === selectedSubject)?.internal === 50 ? "50" : "40"}
                             className="w-full px-4 py-2.5 lg:py-3 rounded-xl bg-gray-800/50 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
