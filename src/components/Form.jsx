@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from "react";
-import courseData from "../coursedata.json";
+import courseData from "../coursedata new.json";
 
 function Form({ onCalculate }) {
+    const [selectedScheme, setSelectedScheme] = useState("");
     const [selectedSemester, setSelectedSemester] = useState("");
     const [selectedSubject, setSelectedSubject] = useState("");
     const [internalMarks, setInternalMarks] = useState("");
     const [subjects, setSubjects] = useState([]);
 
-    // Get available semesters from courseData
-    const semesters = Object.keys(courseData);
+    // Get available schemes from courseData
+    const schemes = Object.keys(courseData);
 
-    // Update subjects when semester changes
+    // Get available semesters for selected scheme
+    const semesters = selectedScheme ? Object.keys(courseData[selectedScheme]) : [];
+
+    // Update subjects when scheme or semester changes
     useEffect(() => {
-        if (selectedSemester) {
-            setSubjects(courseData[selectedSemester]);
+        if (selectedScheme && selectedSemester) {
+            setSubjects(courseData[selectedScheme][selectedSemester]);
             setSelectedSubject(""); // Reset subject when semester changes
         }
-    }, [selectedSemester]);
+    }, [selectedScheme, selectedSemester]);
+
+    const handleSchemeChange = (event) => {
+        setSelectedScheme(event.target.value);
+        setSelectedSemester(""); // Reset semester when scheme changes
+        setSelectedSubject(""); // Reset subject when scheme changes
+    };
 
     const handleSemesterChange = (event) => {
         setSelectedSemester(event.target.value);
@@ -28,7 +38,9 @@ function Form({ onCalculate }) {
 
     const handleMarksChange = (event) => {
         const value = event.target.value;
-        if (value === "" || (Number(value) >= 0 && Number(value) <= 50)) {
+        const subject = subjects.find(sub => sub.courseId === selectedSubject);
+        const maxInternal = subject ? subject.internal : 50;
+        if (value === "" || (Number(value) >= 0 && Number(value) <= maxInternal)) {
             setInternalMarks(value);
         }
     };
@@ -84,7 +96,28 @@ function Form({ onCalculate }) {
         <form onSubmit={handleSubmit} className="w-full max-w-3xl lg:max-w-4xl mx-auto">
             <div className="bg-gray-900/50 backdrop-blur-lg rounded-2xl p-6 lg:p-10">
                 <div className="grid gap-6 lg:gap-8">
-                    {/* Form Fields */}
+                    {/* Scheme Selection */}
+                    <div className="space-y-2 lg:space-y-3">
+                        <label className="text-sm lg:text-base font-medium text-gray-300">
+                            Select Scheme
+                        </label>
+                        <select
+                            value={selectedScheme}
+                            onChange={handleSchemeChange}
+                            className="w-full px-4 py-2.5 lg:py-3 rounded-xl bg-gray-800/50 
+                                     text-white text-sm lg:text-base border border-gray-700 
+                                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                            <option value="">Choose Scheme</option>
+                            {schemes.map((scheme) => (
+                                <option key={scheme} value={scheme}>
+                                    {scheme}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
+                    {/* Semester Selection */}
                     <div className="space-y-2 lg:space-y-3">
                         <label className="text-sm lg:text-base font-medium text-gray-300">
                             Select Semester
@@ -92,9 +125,10 @@ function Form({ onCalculate }) {
                         <select
                             value={selectedSemester}
                             onChange={handleSemesterChange}
+                            disabled={!selectedScheme}
                             className="w-full px-4 py-2.5 lg:py-3 rounded-xl bg-gray-800/50 
                                      text-white text-sm lg:text-base border border-gray-700 
-                                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                     focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
                         >
                             <option value="">Choose Semester</option>
                             {semesters.map((semester) => (
@@ -129,7 +163,7 @@ function Form({ onCalculate }) {
                     <div className="space-y-2 lg:space-y-3">
                         <label className="text-sm lg:text-base font-medium text-gray-300">
                             Internal Marks (0-
-                            {subjects.find(sub => sub.courseId === selectedSubject)?.internal === 50 ? "50" : "40"})
+                            {subjects.find(sub => sub.courseId === selectedSubject)?.internal || "50"})
                         </label>
                         <input
                             type="number"
@@ -137,14 +171,14 @@ function Form({ onCalculate }) {
                             onChange={handleMarksChange}
                             placeholder="Enter internal marks"
                             min="0"
-                            max={subjects.find(sub => sub.courseId === selectedSubject)?.internal === 50 ? "50" : "40"}
+                            max={subjects.find(sub => sub.courseId === selectedSubject)?.internal || "50"}
                             className="w-full px-4 py-2.5 lg:py-3 rounded-xl bg-gray-800/50 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
                     <button
                         type="submit"
-                        disabled={!selectedSemester || !selectedSubject || !internalMarks}
+                        disabled={!selectedScheme || !selectedSemester || !selectedSubject || !internalMarks}
                         className="w-full py-3 lg:py-4 px-4 bg-blue-600 text-white 
                                  text-base lg:text-lg font-medium rounded-xl 
                                  hover:bg-blue-700 transition-all duration-200 

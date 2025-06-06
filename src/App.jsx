@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import Form from './components/Form'
 import Result from './components/Result'
-import './styles/gradients.css' // Add this import
+import './styles/gradients.css'
+import Header from './components/Header';
 
 function App() {
   const [resultData, setResultData] = useState(null);
@@ -25,25 +26,7 @@ function App() {
     <div className="h-vh min-w-screen bg-gradient-to-br from-gray-900 to-gray-800 overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
         {/* Header Section */}
-        <header className="w-full max-w-6xl mx-auto text-center space-y-4 mb-8 lg:mb-12">
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold animated-gradient-text tracking-tight">
-            Minimum Mark Calculator
-          </h1>
-          <p className="text-sm sm:text-base lg:text-lg text-gray-400 max-w-3xl mx-auto">
-            Calculate the minimum marks required to pass your exam.
-            <br />
-            <span className="inline-flex items-center gap-2 mt-2">
-              <a 
-                href="https://github.com/rubyaj24/Min-Mark-App" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                Github Repo
-              </a>
-            </span>
-          </p>
-        </header>
+        <Header />
 
         {/* Main Content */}
         <main className="relative min-h-[600px] lg:min-h-[800px] w-full max-w-7xl mx-auto">

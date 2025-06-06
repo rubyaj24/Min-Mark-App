@@ -103,7 +103,7 @@ function Result({ data }) {
                                 <div className="text-2xl font-semibold mt-2">
                                     {isPossible ? (
                                         <span>
-                                            You Need to score <span className="font-bold">{requiredMarks}</span> out of 60 to pass
+                                            You Need to score <span className="font-bold">{requiredMarks}</span> out of {data.subject.external} to pass
                                         </span>
                                     ) : (
                                         <span className="text-red-400">
