@@ -39,14 +39,14 @@ function Result({ data }) {
 
     const getGradeColor = (grade) => {
         const colors = {
-            O: "text-purple-400",
+            'S': "text-purple-400",
             'A+': "text-blue-400",
-            A: "text-cyan-400",
+            'A': "text-cyan-400",
             'B+': "text-teal-400",
-            B: "text-green-400",
-            C: "text-yellow-400",
-            P: "text-orange-400",
-            F: "text-red-400"
+            'B': "text-green-400",
+            'C': "text-yellow-400",
+            'P': "text-orange-400",
+            'F': "text-red-400"
         };
         return colors[grade] || "text-white";
     };
@@ -85,22 +85,22 @@ function Result({ data }) {
                                 {data.subject.courseId}
                             </h2>
                             <div className="text-red-100/80">
-                                <div className="flex flex-row justify-between mt-4">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-3 mt-4">
                                     <p>{data.subject.courseName}</p>
                                     <p>Credits: {data.subject.credits}</p>
                                 </div>
-                                <div className="flex flex-row justify-between space-y-2 mt-4">
-                                    <p className="text-xl font-semibold mt-2">
+                                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 mt-4">
+                                    <p className="text-lg sm:text-xl font-semibold">
                                         Total Marks: {data.subject.external+data.subject.internal} 
                                         <span className="text-sm font-normal">
                                             ({data.subject.external}+{data.subject.internal})
                                         </span>
                                     </p>
-                                    <p className="text-xl font-semibold mt-2">
+                                    <p className="text-lg sm:text-xl font-semibold">
                                         Your internal score: {data.internal}
                                     </p>
                                 </div>
-                                <div className="text-2xl font-semibold mt-2">
+                                <div className="text-xl sm:text-2xl font-semibold mt-3">
                                     {isPossible ? (
                                         <span>
                                             You Need to score <span className="font-bold">{requiredMarks}</span> out of {data.subject.external} to pass

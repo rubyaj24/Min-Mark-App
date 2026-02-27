@@ -1,0 +1,767 @@
+{
+  "2019": {
+    "CSE": {
+      "semester1": [
+        {
+          "courseId": "GAMAT101",
+          "courseName": "Mathematics for Engineering I",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GAPHT121",
+          "courseName": "Engineering Physics",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXCYT122",
+          "courseName": "Engineering Chemistry",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GMEST103",
+          "courseName": "Engineering Graphics",
+          "credits": 3,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXEST104",
+          "courseName": "Basics of Electrical & Electronics Engineering",
+          "credits": 3,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "UCEST105",
+          "courseName": "Programming in Python",
+          "credits": 3,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "UCHUT128",
+          "courseName": "Life Skills",
+          "credits": 1,
+          "internal": 40,
+          "external": 60
+        }
+      ],
+      "semester2": [
+        {
+          "courseId": "GAMAT102",
+          "courseName": "Mathematics for Engineering II",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXEST203",
+          "courseName": "Foundations of Computing",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXEST204",
+          "courseName": "Programming in C",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "PCITT205",
+          "courseName": "Discrete Mathematical Structures",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXESL208",
+          "courseName": "IT Workshop",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "UCHWT127",
+          "courseName": "Health and Wellness",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        }
+      ],
+      "semester3": [
+        {
+          "courseId": "CST201",
+          "courseName": "Data Structures",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST203",
+          "courseName": "Digital Logic Design",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST205",
+          "courseName": "Object Oriented Programming using Java",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST207",
+          "courseName": "Computer Organization",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CSL201",
+          "courseName": "Data Structures Lab",
+          "credits": 1,
+          "internal": 75,
+          "external": 75
+        },
+        {
+          "courseId": "CSL203",
+          "courseName": "OOP Lab",
+          "credits": 1,
+          "internal": 75,
+          "external": 75
+        }
+      ],
+      "semester4": [
+        {
+          "courseId": "CST204",
+          "courseName": "Operating Systems",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST206",
+          "courseName": "Database Management Systems",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST208",
+          "courseName": "Theory of Computation",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CSL202",
+          "courseName": "OS Lab",
+          "credits": 1,
+          "internal": 75,
+          "external": 75
+        },
+        {
+          "courseId": "CSL204",
+          "courseName": "DBMS Lab",
+          "credits": 1,
+          "internal": 75,
+          "external": 75
+        },
+        {
+          "courseId": "MNC202",
+          "courseName": "Constitution of India",
+          "credits": 0,
+          "internal": 50,
+          "external": 100
+        }
+      ],
+      "semester5": [
+        {
+          "courseId": "CST301",
+          "courseName": "Formal Languages and Automata Theory",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST303",
+          "courseName": "Computer Networks",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST305",
+          "courseName": "System Software",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST307",
+          "courseName": "Microprocessors and Microcontrollers",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST309",
+          "courseName": "Management of Software Systems",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "MCN301",
+          "courseName": "Disaster Management",
+          "credits": 0,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CSL331",
+          "courseName": "System Software and Microprocessors Lab",
+          "credits": 2,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "CSL333",
+          "courseName": "Database Management Systems Lab",
+          "credits": 2,
+          "internal": 50,
+          "external": 50
+        }
+      ],
+
+      "semester6": [
+        {
+          "courseId": "CST302",
+          "courseName": "Compiler Design",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST304",
+          "courseName": "Computer Graphics and Image Processing",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST306",
+          "courseName": "Algorithm Analysis and Design",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST308",
+          "courseName": "Comprehensive Course Work",
+          "credits": 2,
+          "internal": 100,
+          "external": 0
+        },
+        {
+          "courseId": "HUT300",
+          "courseName": "Industrial Economics and Foreign Trade",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CSL332",
+          "courseName": "Computer Networks Lab",
+          "credits": 2,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "CSD334",
+          "courseName": "Mini Project",
+          "credits": 2,
+          "internal": 100,
+          "external": 0
+        }
+      ],
+      "semester7": [
+        {
+          "courseId": "CST401",
+          "courseName": "Artificial Intelligence",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST403",
+          "courseName": "Program Elective I",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST405",
+          "courseName": "Program Elective II",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST407",
+          "courseName": "Project Phase I",
+          "credits": 2,
+          "internal": 100,
+          "external": 0
+        }
+      ],
+      "semester8": [
+        {
+          "courseId": "CST402",
+          "courseName": "Program Elective III",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST404",
+          "courseName": "Program Elective IV",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST406",
+          "courseName": "Project Phase II",
+          "credits": 6,
+          "internal": 100,
+          "external": 0
+        }
+      ]
+    },
+    "ECE": {
+      "semester1": [],
+      "semester2": [],
+      "semester3": [],
+      "semester4": [],
+      "semester5": [],
+      "semester6": [],
+      "semester7": [],
+      "semester8": []
+    },
+    "EEE": {
+      "semester1": [],
+      "semester2": [],
+      "semester3": [],
+      "semester4": [],
+      "semester5": [],
+      "semester6": [],
+      "semester7": [],
+      "semester8": []
+    },
+    "ME": {
+      "semester1": [],
+      "semester2": [],
+      "semester3": [],
+      "semester4": [],
+      "semester5": [],
+      "semester6": [],
+      "semester7": [],
+      "semester8": []
+    },
+    "CE": {
+      "semester1": [],
+      "semester2": [],
+      "semester3": [],
+      "semester4": [],
+      "semester5": [],
+      "semester6": [],
+      "semester7": [],
+      "semester8": []
+    }
+  },
+  "2023": {
+    "CSE": {
+      "semester1": [
+        {
+          "courseId": "GAMAT101",
+          "courseName": "Mathematics for Engineering – I",
+          "credits": 3,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GAPHT121",
+          "courseName": "Physics for Engineering",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXCYT122",
+          "courseName": "Chemistry for Engineering",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GMEST103",
+          "courseName": "Engineering Graphics and Design",
+          "credits": 3,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXEST104",
+          "courseName": "Basics of Electrical and Electronics Engineering",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "UCEST105",
+          "courseName": "Algorithmic Thinking with Python",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "UCHUT128",
+          "courseName": "Life Skills and Professional Communication",
+          "credits": 1,
+          "internal": 40,
+          "external": 60
+        }
+      ],
+      "semester2": [
+        {
+          "courseId": "GAMAT102",
+          "courseName": "Mathematics for Engineering – II",
+          "credits": 3,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXEST203",
+          "courseName": "Foundations of Computing",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXEST204",
+          "courseName": "Programming in C",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "PCITT205",
+          "courseName": "Discrete Mathematical Structures",
+          "credits": 4,
+          "internal": 40,
+          "external": 60
+        },
+        {
+          "courseId": "GXESL208",
+          "courseName": "IT Workshop",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "UCHWT127",
+          "courseName": "Health and Wellness",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        }
+      ],
+      "semester3": [
+        {
+          "courseId": "CST201",
+          "courseName": "Data Structures",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST203",
+          "courseName": "Digital Logic Design",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST205",
+          "courseName": "Object Oriented Programming",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST207",
+          "courseName": "Computer Organization",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CSL201",
+          "courseName": "Data Structures Lab",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "CSL203",
+          "courseName": "OOP Lab",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        }
+      ],
+      "semester4": [
+        {
+          "courseId": "CST202",
+          "courseName": "Design and Analysis of Algorithms",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST204",
+          "courseName": "Operating Systems",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST206",
+          "courseName": "Database Management Systems",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST208",
+          "courseName": "Theory of Computation",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CSL202",
+          "courseName": "Operating Systems Lab",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "CSL204",
+          "courseName": "DBMS Lab",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "MNC202",
+          "courseName": "Constitution of India",
+          "credits": 0,
+          "internal": 50,
+          "external": 100
+        }
+      ],
+      "semester5": [
+        {
+          "courseId": "CST301",
+          "courseName": "Computer Networks",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST303",
+          "courseName": "Software Engineering",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST305",
+          "courseName": "Compiler Design",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST307",
+          "courseName": "Microprocessors and Microcontrollers",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CSL301",
+          "courseName": "Networks Lab",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "CSPBL301",
+          "courseName": "Project Based Learning – I",
+          "credits": 2,
+          "internal": 100,
+          "external": 0
+        }
+      ],
+      "semester6": [
+        {
+          "courseId": "CST302",
+          "courseName": "Machine Learning",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST304",
+          "courseName": "Web Technologies",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST306",
+          "courseName": "Cryptography and Network Security",
+          "credits": 4,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CSL302",
+          "courseName": "Web Technologies Lab",
+          "credits": 1,
+          "internal": 50,
+          "external": 50
+        },
+        {
+          "courseId": "CSPBL302",
+          "courseName": "Project Based Learning – II",
+          "credits": 2,
+          "internal": 100,
+          "external": 0
+        }
+      ],
+      "semester7": [
+        {
+          "courseId": "CST401",
+          "courseName": "Artificial Intelligence",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST403",
+          "courseName": "Program Elective – I (Level 3 / 5)",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST405",
+          "courseName": "Program Elective – II (Level 3 / 5)",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST407",
+          "courseName": "Project Phase – I",
+          "credits": 2,
+          "internal": 100,
+          "external": 0
+        },
+        {
+          "courseId": "CST409",
+          "courseName": "Seminar",
+          "credits": 1,
+          "internal": 100,
+          "external": 0
+        }
+      ],
+      "semester8": [
+        {
+          "courseId": "CST402",
+          "courseName": "Program Elective – III (Level 3 / 5)",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST404",
+          "courseName": "Open Elective",
+          "credits": 3,
+          "internal": 50,
+          "external": 100
+        },
+        {
+          "courseId": "CST406",
+          "courseName": "Project Phase – II / Internship",
+          "credits": 6,
+          "internal": 100,
+          "external": 0
+        }
+      ]
+    },
+    "ECE": {
+      "semester1": [],
+      "semester2": [],
+      "semester3": [],
+      "semester4": [],
+      "semester5": [],
+      "semester6": [],
+      "semester7": [],
+      "semester8": []
+    },
+    "EEE": {
+      "semester1": [],
+      "semester2": [],
+      "semester3": [],
+      "semester4": [],
+      "semester5": [],
+      "semester6": [],
+      "semester7": [],
+      "semester8": []
+    },
+    "ME": {
+      "semester1": [],
+      "semester2": [],
+      "semester3": [],
+      "semester4": [],
+      "semester5": [],
+      "semester6": [],
+      "semester7": [],
+      "semester8": []
+    },
+    "CE": {
+      "semester1": [],
+      "semester2": [],
+      "semester3": [],
+      "semester4": [],
+      "semester5": [],
+      "semester6": [],
+      "semester7": [],
+      "semester8": []
+    }
+  }
+}

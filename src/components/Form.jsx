@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import courseData from "../coursedata new.json";
+import courseData from "../coursedata_new.json";
+import { calculateGradeRequirements } from "../utils/calculations";
 
 function Form({ onCalculate }) {
     const [selectedScheme, setSelectedScheme] = useState("");
+    const [selectedBranch, setSelectedBranch] = useState("");
     const [selectedSemester, setSelectedSemester] = useState("");
     const [selectedSubject, setSelectedSubject] = useState("");
     const [internalMarks, setInternalMarks] = useState("");
@@ -11,21 +13,33 @@ function Form({ onCalculate }) {
     // Get available schemes from courseData
     const schemes = Object.keys(courseData);
 
-    // Get available semesters for selected scheme
-    const semesters = selectedScheme ? Object.keys(courseData[selectedScheme]) : [];
+    // Get available branches for selected scheme
+    const branches = selectedScheme ? Object.keys(courseData[selectedScheme]) : [];
 
-    // Update subjects when scheme or semester changes
+    // Get available semesters for selected scheme and branch
+    const semesters = selectedScheme && selectedBranch
+        ? Object.keys(courseData[selectedScheme][selectedBranch])
+        : [];
+
+    // Update subjects when scheme, branch or semester changes
     useEffect(() => {
-        if (selectedScheme && selectedSemester) {
-            setSubjects(courseData[selectedScheme][selectedSemester]);
+        if (selectedScheme && selectedBranch && selectedSemester) {
+            setSubjects(courseData[selectedScheme][selectedBranch][selectedSemester]);
             setSelectedSubject(""); // Reset subject when semester changes
         }
-    }, [selectedScheme, selectedSemester]);
+    }, [selectedScheme, selectedBranch, selectedSemester]);
 
     const handleSchemeChange = (event) => {
         setSelectedScheme(event.target.value);
+        setSelectedBranch("");
         setSelectedSemester(""); // Reset semester when scheme changes
         setSelectedSubject(""); // Reset subject when scheme changes
+    };
+
+    const handleBranchChange = (event) => {
+        setSelectedBranch(event.target.value);
+        setSelectedSemester("");
+        setSelectedSubject("");
     };
 
     const handleSemesterChange = (event) => {
@@ -53,18 +67,6 @@ function Form({ onCalculate }) {
         
 
         const minEseRequired = Math.max(45 - internal, 24); //ESE - End Semester Exam
-        const maxPossibleTotal = internal + 60;
-
-
-        const gradeFeasibility = {
-            O:  { min: 90, possible: maxPossibleTotal >= 90 },
-            'A+': { min: 85, possible: maxPossibleTotal >= 85 },
-            A:  { min: 80, possible: maxPossibleTotal >= 80 },
-            'B+': { min: 70, possible: maxPossibleTotal >= 70 },
-            B:  { min: 60, possible: maxPossibleTotal >= 60 },
-            C:  { min: 50, possible: maxPossibleTotal >= 50 },
-            P:  { min: 45, possible: maxPossibleTotal >= 45 }
-        };
 
         
         let risk = "IMPOSSIBLE";
@@ -73,11 +75,7 @@ function Form({ onCalculate }) {
         else if (minEseRequired <= 60) risk = "RISKY";
 
         
-        const gradeRequirements = Object.entries(gradeFeasibility).map(([grade, data]) => ({
-            grade,
-            required: Math.max(data.min - internal, 24),
-            possible: data.possible && (data.min - internal) <= 60
-        }));
+        const gradeRequirements = calculateGradeRequirements(internal);
 
         const analysisData = {
             semesterName: selectedSemester,
@@ -117,6 +115,28 @@ function Form({ onCalculate }) {
                         </select>
                     </div>
 
+                    {/* Branch Selection */}
+                    <div className="space-y-2 lg:space-y-3">
+                        <label className="text-sm lg:text-base font-medium text-gray-300">
+                            Select Branch
+                        </label>
+                        <select
+                            value={selectedBranch}
+                            onChange={handleBranchChange}
+                            disabled={!selectedScheme}
+                            className="w-full px-4 py-2.5 lg:py-3 rounded-xl bg-gray-800/50
+                                     text-white text-sm lg:text-base border border-gray-700
+                                     focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                        >
+                            <option value="">Choose Branch</option>
+                            {branches.map((branch) => (
+                                <option key={branch} value={branch}>
+                                    {branch}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+
                     {/* Semester Selection */}
                     <div className="space-y-2 lg:space-y-3">
                         <label className="text-sm lg:text-base font-medium text-gray-300">
@@ -125,7 +145,7 @@ function Form({ onCalculate }) {
                         <select
                             value={selectedSemester}
                             onChange={handleSemesterChange}
-                            disabled={!selectedScheme}
+                            disabled={!selectedBranch}
                             className="w-full px-4 py-2.5 lg:py-3 rounded-xl bg-gray-800/50 
                                      text-white text-sm lg:text-base border border-gray-700 
                                      focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
@@ -178,7 +198,7 @@ function Form({ onCalculate }) {
 
                     <button
                         type="submit"
-                        disabled={!selectedScheme || !selectedSemester || !selectedSubject || !internalMarks}
+                        disabled={!selectedScheme || !selectedBranch || !selectedSemester || !selectedSubject || !internalMarks}
                         className="w-full py-3 lg:py-4 px-4 bg-blue-600 text-white 
                                  text-base lg:text-lg font-medium rounded-xl 
                                  hover:bg-blue-700 transition-all duration-200 
